@@ -43,13 +43,15 @@
 							  		<div class="form-group">
 							  		  <label class="control-label col-sm-6" >Status</label>
 							  		  <div class="col-sm-12">
-							  		    <input type="text" value="<?php echo $status_project ?>" name="status_project" class="form-control"disabled>
+												<input type="text" value="<?php echo $status_project ?>" name="label_status_project" class="form-control"disabled>
+												<input type="hidden" value="<?php echo $status_project ?>" name="status_project" class="form-control">
 							  		  </div>
 							  		</div>
 							  		<div class="form-group">
 							  		  <label class="control-label col-sm-6" >Progress</label>
 							  		  <div class="col-sm-12">
-							  		    <input type="text" value="<?php echo $progress ?>" name="progress_project" class="form-control"disabled>
+												<input type="text" value="<?php echo $progress ?>" name="label_progress_project" class="form-control"disabled>
+												<input type="hidden" value="<?php echo 0;//$progress ?>" name="progress_project" class="form-control">
 							  		  </div>
 							  		</div>
 							  		<div class="form-group">
@@ -109,11 +111,11 @@
 										<div class="form-group">
 							  		  <label class="control-label col-sm-6" >Message</label>
 							  		  <div class="col-sm-12">
-												<div class="form-group" name="form_report" id="form_report">
+												<div class="form-group">
 					 			    			<div class="col-sm-12">
 					 								<input type="hidden" class="form-control" name="id_report" id="id_report" value="<?php echo $id_report; ?>">
 					 								<input type="hidden" class="form-control" name="aksi" id="aksi" value="<?php echo $aksi; ?>">
-					 								<input type="hidden" class="form-control" name="id_project" id="id_project" value="<?php echo $id_project; ?>">
+													<input type="hidden" class="form-control" name="id_project" id="id_project" value="<?php echo $id_project; ?>">
 					 								<textarea class="form-control" name="keterangan" rows="4"><?php echo $keterangan ?></textarea>
 					 							</div>
 					 						</div>
@@ -144,7 +146,8 @@ $(document).ready(function(){
 
 			aksi = $('input[name=aksi]').val();
 			id_project = $('input[name=id_project]').val();
-				console.log(id_project,aksi); //id_project
+
+				//console.log(id_project,aksi,status_project); //id_project
 			if(aksi == 'add new'){
 				url = "<?php echo base_url('index.php/report/c_report/insert_report'); ?>"
 			}else if(aksi == 'edit'){
