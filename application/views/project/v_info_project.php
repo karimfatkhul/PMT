@@ -76,9 +76,9 @@ echo'<br>
 	                      $nama_task 		= $u4->nama_task;
 	                      echo'
 	                      <div class="col-md-12">
-	                        <div class="box" style="box-shadow: 2px 1px 8px 1px rgba(0, 0, 0, 0.1);" onclick="view_task('.$id_task.','.$id_project.')">
+	                        <div class="box" style="box-shadow: 2px 1px 8px 1px rgba(0, 0, 0, 0.1);" >
 	                          <div class="box-body" style="padding: 15px 20px 15px !important;">
-	                            <p class="box-title" style="display:inline-flex">
+	                            <p href="#" class="box-title" style="display:inline-flex; cursor:pointer;" onclick="view_task('.$id_task.','.$id_project.')">
 	                            '.$nama_task.'
 	                            <span>
 	                              <ul class="list-unstyled d-inline-flex float-right">
@@ -135,7 +135,6 @@ echo'<br>
 <script>
 // Call fromt add task when document load
 $(document).ready(function(){
-
 	var role = "<?php echo $role?>";
 	if(role == "project leader"){
 			var id = "<?php echo $id_project?>";
