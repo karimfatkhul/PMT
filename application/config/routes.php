@@ -66,7 +66,7 @@ $route['project'] = 'project/c_project';
 $route['add/project'] = 'project/c_project/add_project';
 $route['edit/project/(:any)'] = 'project/c_project/view_project/(:any)';
 $route['view/project/(:any)'] = 'project/c_project/view_project/(:any)';
-$route['view/project_user/(:any)'] = 'project/c_project/view_project_user/(:any)'; ///**
+$route['view/project_user/(:any)'] = 'project/c_project/view_project/(:any)';
 $route['report/project/(:any)'] = 'report/c_report/report_project/(:any)';
 
 $route['create/report/(:any)'] = 'report/c_report/create_report';

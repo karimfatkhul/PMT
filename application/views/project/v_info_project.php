@@ -61,7 +61,6 @@ echo'<br>
 												<span><a href="#" onclick="hideBox()" ><i style="position: relative;" class="material-icons">close</i></a></span>
 											</div>
 											<div class="box-body">
-												<p class="box-title">Task Title</p>
 												<div class="board" ></div>
 											</div>
 										</div>
