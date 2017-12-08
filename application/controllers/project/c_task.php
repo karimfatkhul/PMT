@@ -72,20 +72,23 @@ $this->load->library('session');
 		//echo json_encode($data);
 	}
 
-	function update_task(){
-    $nama_task = $this->input->POST('nama_task');
-    $status_task = $this->input->POST('status_task');
+	function update_nama_task(){
+	 	$id_task= $this->input->POST('id_task');
+		$nama_task = $this->input->POST('nama_task');
+  //  $status_task = $this->input->POST('status_task');
 
     if(ctype_space($nama_task) || $nama_task==null){
       $data ['mssg'] = 'name of task is empty!!';
     }else{
-      $result = $this->m_task->m_update_task($_POST);
+      $result = $this->m_task->m_update_Ntask($id_task,$nama_task);
       if($result == 'ok'){
-        $data ['mssg'] = 'success full update data task';
+        $data ['mssg'] = $result;//'success full update data task';
       }else if($result == 'failed'){
-        $data ['mssg'] = 'failed update data task!!';
+        $data ['mssg'] = $result;//'failed update data task!!';
       }
-      $data ['result'] = $result;
+
+			$data ['result'] = $result;
+			$data ['new_name'] = $nama_task;
     }
 
     echo json_encode($data);

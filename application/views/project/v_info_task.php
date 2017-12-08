@@ -7,12 +7,12 @@
 		}
 echo '
 <div class="input-group mb-4">
-	<input type="text" class="form-control project" value="Task Title">
+	<input type="text" id="nama_task_up" class="form-control project" value="'.$nama_task.'">
 	<span class="input-group-addon project">
-	<button class="project edit" onclick="activeInput()"><i class="material-icons">mode_edit</i></button>
-	<button class="project save" onclick="saveInput()"><i class="material-icons">save</i></button>
+	<button class="project edit" onclick="active_Ntask()"><i class="material-icons">mode_edit</i></button>
+	<button class="project save" onclick="saveN_task('.$id_task.')"><i class="material-icons">save</i></button>
 	<button class="project add" onclick="addMember()"><i class="material-icons">person_add</i></button>
-	
+
 	</span>
 	<span class="input-group-addon project">End Date <span class="ml-2 badge badge-primary"><?php echo $start_date ?></span></span>
 </div>
@@ -147,18 +147,32 @@ $.ajax({
         }); location.reload();
        }
     }
-		function activeInput(){
+		function active_Ntask(){
 			$('input.form-control.project').css('background','#fff');
 			$('input.form-control.project').css('border','1px solid gray');
 			$('input.form-control.project').css('border-radius','4px ');
 			$('.edit').css('display','none ');
 			$('.save').css('display','block');
 		}
-		function saveInput(){
-			$('input.form-control.project').css('background','#f8f9fa');
-			$('input.form-control.project').css('border','none');
-			$('input.form-control.project').css('border-radius','0 ');
-			$('.edit').css('display','block ');
-			$('.save').css('display','none');
+		function saveN_task(id_task){
+			nama_task = $('#nama_task_up').val();
+
+			$.ajax({
+						type:"POST",
+						dataType : "JSON",
+						data : {id_task:id_task, nama_task:nama_task},
+						url: "<?php echo base_url('index.php/project/c_task/update_nama_task'); ?>",
+						success: function(data){
+											$('#nama_task_up').val(data['new_name']);
+											$('input.form-control.project').css('background','#f8f9fa');
+											$('input.form-control.project').css('border','none');
+											$('input.form-control.project').css('border-radius','0 ');
+											$('.edit').css('display','block ');
+											$('.save').css('display','none');
+
+							}
+		   });
+
+
 		}
 </script>
