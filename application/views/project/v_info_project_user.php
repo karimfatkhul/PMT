@@ -50,12 +50,12 @@ echo'<br>
               <br>
               <hr>
               <p class="lead" style="font-size:1rem">You are <?php echo $actor ?> in this project as <span class="badge badge-warning" style="color: #fff9f9;"><?php echo $role ?> </span>
-                <span >
+								<span >
                   <?php
                   if($actor == 'team member'){
                     foreach ($roles as $ux) {
                       $role = $ux->role;
-                      echo'<button class="btn btn-danger btn-sm ml-3"  onclick="create_report('.$id_project.')"><small>Create Report</small></button>';
+                      echo'<button class="btn btn-danger btn-sm ml-3"  onclick="create_report('.$id_project.')"><small>Create Report</small></button> <span id="message"></span>';
                     }
                   }else $role = 'none';
                   ?>
@@ -244,10 +244,9 @@ $(document).ready(function(){
               data : { id:id, aksi:aksi },
               url: "<?php echo base_url('index.php/report/c_report/requesto_create_report'); ?>",
               success: function(data){
-
                 if(data == 'ok'){
                     document.location.href ="<?php echo base_url(''); ?>index.php/create/report/"+id ;
-                }else $('#board').html(data);
+                }else $('#message').html(data);
               }
         });
     }

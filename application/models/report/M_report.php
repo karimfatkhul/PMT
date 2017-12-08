@@ -91,15 +91,16 @@ parent::__construct();
                         'date_report'           => $date,
                         'from_id_user'          => $id_user,
                         'from_id_project'       => $this->input->post('id_project'),
+                        'status_project'        => $this->input->post('status_project'),
+                        'progress_project'      => $this->input->post('progress_project'),
                       );
 
-
+                      if(isset($data['progress_project']) == null){
+                        $data['progress_project'] = 0;
+                      }
           //$this->db->set($values);
-          $query = $this->db->query("INSERT INTO tabel_report(keterangan, date_report, from_id_project, from_id_user)
-                                              VALUES( '".$data['keterangan']."',
-                                                      '".$data['date_report']."',
-                                                      '".$data['from_id_project']."',
-                                                      '".$data['from_id_user']."')");
+          $query = $this->db->query("INSERT INTO tabel_report(keterangan, date_report, from_id_project, from_id_user, status_on_report, progress_on_report)
+                                      VALUES( '".$data['keterangan']."','".$data['date_report']."','".$data['from_id_project']."','".$data['from_id_user']."','".$data['status_project']."','".$data['progress_project']."')");
           if($query){
                   $result = 'ok';
             } else $result = 'failed';

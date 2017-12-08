@@ -45,7 +45,7 @@ echo'<br>
 									if($actor == 'team member'){
 										foreach ($roles as $ux) {
 											$role = $ux->role;
-											echo'<button class="btn btn-danger btn-sm ml-3"  onclick="create_report('.$id_project.')"><small>Create Report</small></button>';
+											echo'<button class="btn btn-danger btn-sm ml-3"  onclick="create_report('.$id_project.')"><small>Create Report</small></button>  <h4 id="message"></h4>';
 										}
 									}else $role = 'none';
 									?>
@@ -237,7 +237,10 @@ $(document).ready(function(){
 
                 if(data == 'ok'){
                     document.location.href ="<?php echo base_url(''); ?>index.php/create/report/"+id ;
-                }else $('#board').html(data);
+                }else {
+									$('#message').html(data);
+									window.setTimeout(function(){ $('#message').empty(); },3000)
+								}
               }
         });
     }
