@@ -12,6 +12,24 @@ body{
   left: 0;
   background: #f8f9fa;
 }
+input.form-control.project{
+  font-size: 1rem;
+    font-weight: 600;
+    background: #f8f9fa;
+    border: none;
+}
+span.input-group-addon.project {
+  font-size: 1rem;
+    background: #f8f9fa;
+    border: none;
+}
+button.project{
+  border: none;
+  background-color: #f8f9fa;
+}
+button.project i.material-icons{
+    font-size: 1rem !important;
+}
 .overlay {
  position: absolute;
  left: 100%;
