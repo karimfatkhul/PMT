@@ -1,6 +1,4 @@
-
 <?php
-
 		foreach ($data_task as $u2) {
 			$id_task 		= $u2->id_task;
 			$nama_task 		= $u2->nama_task;
@@ -8,6 +6,16 @@
 			$id_project 	= $u2->from_id_project;
 		}
 echo '
+<div class="input-group mb-4">
+	<input type="text" class="form-control project" value="Task Title">
+	<span class="input-group-addon project">
+	<button class="project edit" onclick="activeInput()"><i class="material-icons">mode_edit</i></button>
+	<button class="project save" onclick="saveInput()"><i class="material-icons">save</i></button>
+	<button class="project add" onclick="addMember()"><i class="material-icons">person_add</i></button>
+	
+	</span>
+	<span class="input-group-addon project">End Date <span class="ml-2 badge badge-primary"><?php echo $start_date ?></span></span>
+</div>
 		<table class="table table-responsive table-condensed table-md" id="boards">
 			<tr>
 				<td>';
@@ -50,7 +58,7 @@ echo'			</td>
 <script>
 // Call fromt add task when document load
 $(document).ready(function(){
-
+	$('.save').css('display','none');
 	var role 	= "<?php echo $role?>";
 	var actor = "<?php echo $actor?>";
 	var id 		= "<?php echo $id_task?>";
@@ -139,4 +147,18 @@ $.ajax({
         }); location.reload();
        }
     }
+		function activeInput(){
+			$('input.form-control.project').css('background','#fff');
+			$('input.form-control.project').css('border','1px solid gray');
+			$('input.form-control.project').css('border-radius','4px ');
+			$('.edit').css('display','none ');
+			$('.save').css('display','block');
+		}
+		function saveInput(){
+			$('input.form-control.project').css('background','#f8f9fa');
+			$('input.form-control.project').css('border','none');
+			$('input.form-control.project').css('border-radius','0 ');
+			$('.edit').css('display','block ');
+			$('.save').css('display','none');
+		}
 </script>

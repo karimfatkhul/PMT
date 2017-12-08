@@ -19,20 +19,24 @@ foreach ($activityes as $u4) {
       foreach ($list as $u5) {
         if($u5->from_id_activity == $id_activity){
           if($u5->status_list == 'done'){
-            echo '<li style="font-size:0.88rem">'.$u5->list_activity;
+            echo '<li style="font-size:0.88rem;list-style:none;">'.$u5->list_activity;
 
                 if($actor == 'on task' || $role == "project leader"){
                 echo'<span class="ml-3"><input type="checkbox" name="status[]" value="'.$u5->id_list.'" class="list" checked></input></span>
-                  <span class="ml-3"><button onclick="delete_list('.$u5->id_list.')">X</button></span></li>
+
+                  <span class="ml-3"><button  class="project" onclick="delete_list('.$u5->id_list.')"><i class="material-icons">delete</i></button></span>
+                  </li>
                   <br/>
                   ';
               }
           }
           else {
-            echo '<li style="font-size:0.88rem">'.$u5->list_activity;
+            echo '<li style="font-size:0.88rem;list-style:none;">'.$u5->list_activity;
                 if($actor == 'on task' || $role == "project leader"){
                 echo'<span class="ml-3"><input type="checkbox" name="status[]" value="'.$u5->id_list.'" class="list" ></input></span>
-                <span class="ml-3"><button onclick="delete_list('.$u5->id_list.')">X</button></span></li>
+
+                <span class="ml-3"><button class="project" onclick="delete_list('.$u5->id_list.')"><i class="material-icons">delete</i></button></span>
+                </li>
                 <br/>
                 ';
               }
