@@ -70,13 +70,7 @@ function m_insert_task($values){               // add new project
             }else  $result = 'no';
         return $result;
     }
-function m_update_Ntask($id_task,$nama_task){
-        $query = $this->db->query("UPDATE tabel_task SET nama_task = '$nama_task' WHERE id_task = '$id_task' ");
-        if($query){
-          $result = 'ok';
-        }else $result = 'failed';
-    return $result;
-}
+
 function m_update_task($values){      // Update data project
 
         $id = $this->input->post('id_task');

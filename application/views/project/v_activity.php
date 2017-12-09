@@ -8,40 +8,31 @@ foreach ($activityes as $u4) {
       echo'
       <div class="card" style="border: 0.5px solid #e7e4e4ba !important">
         <div class="card-header" role="tab" id="heading'.$id_activity.'" style="border-bottom:0.5px solid #e7e4e4ba !important;">
-          <div class="input-group">
-            <input type="text" style="cursor:pointer;" class="form-control act activity'.$id_activity.'" value="'.$nama_activity.'"
+          <p class="mb-0" style="font-size:0.88rem">
             <a data-toggle="collapse" href="#collapse'.$id_activity.'" aria-expanded="true" aria-controls="collapseOne" style="text-decoration:none;color:#4e4f50 !important">
+              '.$nama_activity.'
             </a>
-            <span class="input-group-addon activity">
-            <button class="act editactivity'.$id_activity.'" onclick="activeInput('.$id_activity.')"><i style="  font-size: 1rem !important;" class="material-icons">mode_edit</i></button>
-            <button class="saved saveactivity'.$id_activity.'" onclick="saveInput('.$id_activity.')"><i style="  font-size: 1rem !important;" class="material-icons">save</i></button>
-              <button class="act deleteactivity'.$id_activity.'" onclick="saveInput('.$id_activity.')"><i style="  font-size: 1rem !important;" class="material-icons">delete</i></button>
-            </span>
-          </div>
+          </p>
         </div>' ;
         echo'<div id="collapse'.$id_activity.'" class="collapse" role="tabpanel" aria-labelledby="heading'.$id_activity.'" data-parent="#accordion">
         <div class="card-body">';
       foreach ($list as $u5) {
         if($u5->from_id_activity == $id_activity){
           if($u5->status_list == 'done'){
-            echo '<li style="font-size:0.88rem;list-style:none;">'.$u5->list_activity;
+            echo '<li style="font-size:0.88rem">'.$u5->list_activity;
 
                 if($actor == 'on task' || $role == "project leader"){
                 echo'<span class="ml-3"><input type="checkbox" name="status[]" value="'.$u5->id_list.'" class="list" checked></input></span>
-
-                  <span class="ml-3"><button  class="project" onclick="delete_list('.$u5->id_list.')"><i class="material-icons">delete</i></button></span>
-                  </li>
+                  <span class="ml-3"><button onclick="delete_list('.$u5->id_list.')">X</button></span></li>
                   <br/>
                   ';
               }
           }
           else {
-            echo '<li style="font-size:0.88rem;list-style:none;">'.$u5->list_activity;
+            echo '<li style="font-size:0.88rem">'.$u5->list_activity;
                 if($actor == 'on task' || $role == "project leader"){
                 echo'<span class="ml-3"><input type="checkbox" name="status[]" value="'.$u5->id_list.'" class="list" ></input></span>
-
-                <span class="ml-3"><button class="project" onclick="delete_list('.$u5->id_list.')"><i class="material-icons">delete</i></button></span>
-                </li>
+                <span class="ml-3"><button onclick="delete_list('.$u5->id_list.')">X</button></span></li>
                 <br/>
                 ';
               }
@@ -68,11 +59,6 @@ foreach ($activityes as $u4) {
 ?>
 <script>
   $(document).ready(function(){
-    $('.saved').css('display','none');
-    $('.act').css('background','#f8f9fa');
-    $('.act').css('border','none');
-    $('.act').css('border-radius','0 ');
-
     $(".list").change(function() {
         if(this.checked) {
           var id = $(this).val();
@@ -131,20 +117,6 @@ foreach ($activityes as $u4) {
             }
       });
 
-  }
-  function activeInput(id_activity){
-    $('input.form-control.activity'+String(id_activity)).css('background','#fff');
-    $('input.form-control.activity'+String(id_activity)).css('border','1px solid gray');
-    $('input.form-control.activity'+String(id_activity)).css('border-radius','4px ');
-    $('.editactivity'+String(id_activity)).css('display','none');
-    $('.saveactivity'+String(id_activity)).css('display','block');
-  }
-  function saveInput(id_activity){
-    $('input.form-control.activity'+String(id_activity)).css('background','#f8f9fa');
-    $('input.form-control.activity'+String(id_activity)).css('border','none');
-    $('input.form-control.activity'+String(id_activity)).css('border-radius','0 ');
-    $('.editactivity'+String(id_activity)).css('display','block ');
-    $('.saveactivity'+String(id_activity)).css('display','none');
   }
 
 </script>
