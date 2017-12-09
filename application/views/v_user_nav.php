@@ -1,16 +1,16 @@
 <?php $this->load->view('asset'); ?>
 <body>
 	<div id="main">
-		<nav class="navbar navbar-expand-lg navbar-light bg-light p-0">
-			<div class="container p-0">
+		<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+			<div class="container-fluid">
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item active cl-effect-1 ">
 						<a class="nav-link" href="#">Home</a>
 					</li>
 					<li class="nav-item cl-effect-1">
-						<a class="nav-link" href="#">Solusi247</a>
+						<a class="nav-link" href="<?php echo base_url('index.php/project');?>">Project</a>
 						<li class="nav-item cl-effect-1">
-							<a class="nav-link" href="#">Mail</a>
+							<a class="nav-link" href="<?php echo base_url('index.php/list/user/report/');?><?php echo $this->session->userdata('id_user');?>">Report</a>
 						</li>
 					</ul>
 					<span class="navbar-text">
@@ -18,167 +18,41 @@
 					</span>
 				</div>
 		</nav>
-		<div class="container" style="margin-top:20px; min-height:900px;">
+		<div class="container" style="margin-top:100px; min-height:500px;">
 			<div class="row">
-				<div class="col-md-3 ">
-					<ul class="box-user pl-0">
-						<p class="lead pt-3" style="font-size:1rem">Hello <?php echo $this->session->userdata('nama_user'); ?></p>
-					</ul>
-				</div>
-				<div class="col-md-9 user">
-					<ul class=" user nav justify-content-begin ">
-						<li class="nav-item p-2">
-							<a class="nav-link active" style="color:rgba(0,0,0,.9);" href="#">Recent Activities</a>
-						</li>
-						<li class="nav-item p-2">
-							<a class="nav-link" style="color:rgba(0,0,0,.5);" href="#">Project</a>
-						</li>
-						<li class="nav-item p-2">
-							<a class="nav-link" style="color:rgba(0,0,0,.5);" href="#">Near Deadline</a>
-						</li>
-						<li class="nav-item p-2">
-							<a class="nav-link" style="color:rgba(0,0,0,.5);" href="#">Report</a>
-						</li>
-					</ul>
+				<div class="col-md-12">
+					<p class="lead py-3">Hello <?php echo $this->session->userdata('nama_user'); ?> / <?php echo $this->session->userdata('tipe_user'); ?></p>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-md-3">
-					<div class="box" style="height:900px;">
-						<div class="box-header pb-0">
-							<p class="lead" style="font-size:1rem">Project Summary</p>
-						</div>
+					<div class="box">
 						<div class="box-body">
-							<table class="table table-condensed">
-								<tr>
-									<td>1.</td>
-									<td>Project Handled</td>
-									<td><span class="badge badge-primary">150</span></td>
-								</tr>
-								<tr>
-									<td>2.</td>
-									<td>Near Deadline</td>
-									<td><span class="badge badge-info">70</span></td>
-								</tr>
-								<tr>
-									<td>3.</td>
-									<td>On Progress</td>
-									<td><span class="badge badge-success">30</span></td>
-								</tr>
-								<tr>
-									<td>4.</td>
-									<td>Done</td>
-									<td><span class="badge badge-danger">90</span></td>
-								</tr>
-							</table>
+							<ul class="nav flex-column">
+								<li class="nav-item">
+									<a class="nav-link active" href="#">Active</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="#">Link</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="#">Link</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="#">Disabled</a>
+								</li>
+							</ul>
 						</div>
 					</div>
 
 				</div>
-				<div class="col-md-9">
-					<div class="box" style="height:900px;">
+				<div class="col-md-8">
+					<div class="box">
 						<div class="box-header">
 							<p class="box-title">
 							</p>
 						</div>
 						<div class="box-body">
-							<div class="row">
-								<div class="col-md-6  my-4">
-									<div class="box" style="box-shadow: 2px 1px 8px 1px rgba(0, 0, 0, 0.1);">
-										<div class="box-header">
-											<p class="box-title"> Project Title
-											</p>
-											<span>
-												<ul class="list-unstyled d-inline-flex float-right">
-													<li style="margin:0px 5px; "><span class="badge badge-primary">End Date</span></li>
-												</ul>
-											</span>
-										</div>
-										<div class="box-body pt-0">
-											<p class="lead" style="font-size:1rem">Project Description<p>
-										</div>
-									</div>
-								</div>
-								<div class="col-md-6  my-4">
-									<div class="box" style="box-shadow: 2px 1px 8px 1px rgba(0, 0, 0, 0.1);">
-										<div class="box-header">
-											<p class="box-title"> Project Title
-											</p>
-											<span>
-												<ul class="list-unstyled d-inline-flex float-right">
-													<li style="margin:0px 5px; "><span class="badge badge-primary">End Date</span></li>
-												</ul>
-											</span>
-										</div>
-										<div class="box-body  pt-0">
-											<p class="lead" style="font-size:1rem">Project Description<p>
-										</div>
-									</div>
-								</div>
-								<div class="col-md-6 my-4">
-									<div class="box" style="box-shadow: 2px 1px 8px 1px rgba(0, 0, 0, 0.1);">
-										<div class="box-header">
-											<p class="box-title"> Project Title
-											</p>
-											<span>
-												<ul class="list-unstyled d-inline-flex float-right">
-													<li style="margin:0px 5px; "><span class="badge badge-primary">End Date</span></li>
-												</ul>
-											</span>
-										</div>
-										<div class="box-body  pt-0">
-											<p class="lead" style="font-size:1rem">Project Description<p>
-										</div>
-									</div>
-								</div>
-								<div class="col-md-6  my-4">
-									<div class="box" style="box-shadow: 2px 1px 8px 1px rgba(0, 0, 0, 0.1);">
-										<div class="box-header">
-											<p class="box-title"> Project Title
-											</p>
-											<span>
-												<ul class="list-unstyled d-inline-flex float-right">
-													<li style="margin:0px 5px; "><span class="badge badge-primary">End Date</span></li>
-												</ul>
-											</span>
-										</div>
-										<div class="box-body  pt-0">
-											<p class="lead" style="font-size:1rem">Project Description<p>
-										</div>
-									</div>
-								</div>
-								<div class="col-md-6  my-4">
-									<div class="box" style="box-shadow: 2px 1px 8px 1px rgba(0, 0, 0, 0.1);">
-										<div class="box-header">
-											<p class="box-title"> Project Title
-											</p>
-											<span>
-												<ul class="list-unstyled d-inline-flex float-right">
-													<li style="margin:0px 5px; "><span class="badge badge-primary">End Date</span></li>
-												</ul>
-											</span>
-										</div>
-										<div class="box-body  pt-0">
-											<p class="lead" style="font-size:1rem">Project Description<p>
-										</div>
-									</div>
-								</div>
-								<div class="col-md-6  my-4">
-									<div class="box" style="box-shadow: 2px 1px 8px 1px rgba(0, 0, 0, 0.1);">
-										<div class="box-header">
-											<p class="box-title"> Project Title
-											</p>
-											<span>
-												<ul class="list-unstyled d-inline-flex float-right">
-													<li style="margin:0px 5px; "><span class="badge badge-primary">End Date</span></li>
-												</ul>
-											</span>
-										</div>
-										<div class="box-body  pt-0">
-											<p class="lead" style="font-size:1rem">Project Description<p>
-										</div>
-									</div>
-								</div>
 						</div>
 					</div>
 				</div>
@@ -199,17 +73,5 @@ function closeNav() {
     document.getElementById("nav").style.marginLeft = "auto";
     document.getElementById("burger").style.display = "block";
 }
-$(window).scroll(function(){
-    if ($(window).scrollTop() >= 100) {
-       $('.user.nav.justify-content-begin').addClass('fixed-header');
-			 $('.box-user').addClass('fixed-header2');
-			  $('.lead.pt-3').addClass('ratakan');
-    }
-    else {
-       $('.user.nav.justify-content-begin').removeClass('fixed-header');
-			 $('.box-user').removeClass('fixed-header2');
-			 $('.lead.pt-3').removeClass('ratakan');
-    }
-});
 </script>
 <?php $this->load->view('foot'); ?>

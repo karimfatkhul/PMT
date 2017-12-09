@@ -45,7 +45,7 @@ echo'<br>
 									if($actor == 'team member'){
 										foreach ($roles as $ux) {
 											$role = $ux->role;
-											echo'<button class="btn btn-danger btn-sm ml-3"  onclick="create_report('.$id_project.')"><small>Create Report</small></button>  <h4 id="message"></h4>';
+											echo'<button class="btn btn-danger btn-sm ml-3"  onclick="create_report('.$id_project.')"><small>Create Report</small></button>';
 										}
 									}else $role = 'none';
 									?>
@@ -61,6 +61,7 @@ echo'<br>
 												<span><a href="#" onclick="hideBox()" ><i style="position: relative;" class="material-icons">close</i></a></span>
 											</div>
 											<div class="box-body">
+												<p class="box-title">Task Title</p>
 												<div class="board" ></div>
 											</div>
 										</div>
@@ -76,9 +77,9 @@ echo'<br>
 	                      $nama_task 		= $u4->nama_task;
 	                      echo'
 	                      <div class="col-md-12">
-	                        <div class="box" style="box-shadow: 2px 1px 8px 1px rgba(0, 0, 0, 0.1);" >
+	                        <div class="box" style="box-shadow: 2px 1px 8px 1px rgba(0, 0, 0, 0.1);" onclick="view_task('.$id_task.','.$id_project.')">
 	                          <div class="box-body" style="padding: 15px 20px 15px !important;">
-	                            <p href="#" class="box-title" style="display:inline-flex; cursor:pointer;" onclick="view_task('.$id_task.','.$id_project.')">
+	                            <p class="box-title" style="display:inline-flex">
 	                            '.$nama_task.'
 	                            <span>
 	                              <ul class="list-unstyled d-inline-flex float-right">
@@ -135,6 +136,7 @@ echo'<br>
 <script>
 // Call fromt add task when document load
 $(document).ready(function(){
+
 	var role = "<?php echo $role?>";
 	if(role == "project leader"){
 			var id = "<?php echo $id_project?>";
@@ -171,7 +173,7 @@ $(document).ready(function(){
 		}
 
 	function view_task(id,id_p){
-		$('.board').empty();
+		$('#board').empty();
 		document.getElementById("taskhidden").style.width = "100%";
 		document.getElementById("taskhidden").style.height = "auto";
 		document.getElementById("taskhidden").style.minHeight = callHeight;
@@ -236,10 +238,7 @@ $(document).ready(function(){
 
                 if(data == 'ok'){
                     document.location.href ="<?php echo base_url(''); ?>index.php/create/report/"+id ;
-                }else {
-									$('#message').html(data);
-									window.setTimeout(function(){ $('#message').empty(); },3000)
-								}
+                }else $('#board').html(data);
               }
         });
     }

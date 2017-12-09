@@ -1,4 +1,6 @@
+
 <?php
+
 		foreach ($data_task as $u2) {
 			$id_task 		= $u2->id_task;
 			$nama_task 		= $u2->nama_task;
@@ -6,23 +8,6 @@
 			$id_project 	= $u2->from_id_project;
 		}
 echo '
-<div class="input-group mb-4">
-	<input type="text" id="nama_task_up" class="form-control project" value="'.$nama_task.'">
-	<span class="input-group-addon project">
-<<<<<<< HEAD
-	<button class="project edit" onclick="active_Ntask()"><i class="material-icons">mode_edit</i></button>
-	<button class="project save" onclick="saveN_task('.$id_task.')"><i class="material-icons">save</i></button>
-	<button class="project add" onclick="addMember()"><i class="material-icons">person_add</i></button>
-
-=======
-	<button class="project edit" onclick="iInput()"><i class="material-icons">mode_edit</i></button>
-	<button class="project save" onclick="sInput()"><i class="material-icons">save</i></button>
-	<button class="project add" title="Change Member"  data-toggle="popover" data-trigger="focus" data-content="Pilih gambar untuk memilih member"><i class="material-icons">person_add</i></button>
->>>>>>> 506e5dc1eb168617fb3141d32785ce0fe2553fd0
-	</span>
-	<span class="input-group-addon project">End Date <span class="ml-2 badge badge-primary"><?php echo $start_date ?></span></span>
-</div>
-
 		<table class="table table-responsive table-condensed table-md" id="boards">
 			<tr>
 				<td>';
@@ -65,8 +50,7 @@ echo'			</td>
 <script>
 // Call fromt add task when document load
 $(document).ready(function(){
-	$('[data-toggle="popover"]').popover();
-	$('.save').css('display','none');
+
 	var role 	= "<?php echo $role?>";
 	var actor = "<?php echo $actor?>";
 	var id 		= "<?php echo $id_task?>";
@@ -155,46 +139,4 @@ $.ajax({
         }); location.reload();
        }
     }
-<<<<<<< HEAD
-		function active_Ntask(){
-=======
-		function iInput(){
->>>>>>> 506e5dc1eb168617fb3141d32785ce0fe2553fd0
-			$('input.form-control.project').css('background','#fff');
-			$('input.form-control.project').css('border','1px solid gray');
-			$('input.form-control.project').css('border-radius','4px ');
-			$('.edit').css('display','none ');
-			$('.save').css('display','block');
-		}
-<<<<<<< HEAD
-		function saveN_task(id_task){
-			nama_task = $('#nama_task_up').val();
-
-			$.ajax({
-						type:"POST",
-						dataType : "JSON",
-						data : {id_task:id_task, nama_task:nama_task},
-						url: "<?php echo base_url('index.php/project/c_task/update_nama_task'); ?>",
-						success: function(data){
-											$('#nama_task_up').val(data['new_name']);
-											$('input.form-control.project').css('background','#f8f9fa');
-											$('input.form-control.project').css('border','none');
-											$('input.form-control.project').css('border-radius','0 ');
-											$('.edit').css('display','block ');
-											$('.save').css('display','none');
-
-							}
-		   });
-
-
-=======
-		function sInput(){
-			$('input.form-control.project').css('background','#f8f9fa');
-			$('input.form-control.project').css('border','none');
-			$('input.form-control.project').css('border-radius','0 ');
-			$('.edit').css('display','block ');
-			$('.save').css('display','none');
->>>>>>> 506e5dc1eb168617fb3141d32785ce0fe2553fd0
-		}
-
 </script>
