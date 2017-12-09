@@ -171,7 +171,7 @@ $(document).ready(function(){
 		}
 
 	function view_task(id,id_p){
-		$('#board').empty();
+		$('.board').empty();
 		document.getElementById("taskhidden").style.width = "100%";
 		document.getElementById("taskhidden").style.height = "auto";
 		document.getElementById("taskhidden").style.minHeight = callHeight;
